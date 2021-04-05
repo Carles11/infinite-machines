@@ -1,12 +1,11 @@
-import Scroller from './views/scroller.js'
+import MainRedditter from './views/MainRedditter.js'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-       
-      <Scroller />
+       <MainRedditter />
       </header>
     </div>
   );
