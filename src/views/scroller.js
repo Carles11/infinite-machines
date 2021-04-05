@@ -20,7 +20,7 @@ const Scroller = () => {
     }
 
     const getUrl = (reddit) => {
-        const imgUrl = reddit.preview.images[0].resolutions[1].url
+        const imgUrl = reddit.url
         let encoded = imgUrl.replace('amp;s', 's')
         let doubleEncoded = encoded.replace('amp;', '')
         let tripleEncoded = doubleEncoded.replace('amp;', '')
@@ -34,8 +34,8 @@ const Scroller = () => {
         <h1>Infinite Machines Images </h1>
        {reddits.map(reddit =>  
         <div>
+            <img alt="reddit" width="100%" src={getUrl(reddit)} />
             <h5>{reddit.title}</h5>
-            <img alt="reddit" src={getUrl(reddit)} />
         </div>)}
     </div>
     )
