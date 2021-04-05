@@ -5,7 +5,7 @@ const Scroller = () => {
    const [ reddits, setReddits ] = useState([])
 
    useEffect(()=> {
-    fetch('https://www.reddit.com/r/MachinePorn/.json?limit=11')
+    fetch('https://www.reddit.com/r/MachinePorn/.json')
 .then(response => response.json())
 .then(
     data => handleReddits(data)
@@ -14,23 +14,29 @@ const Scroller = () => {
 
    const handleReddits = (data) =>{
        let redditsArray = []
+       console.log("DADADAD",data)
+       data.data.children.map(redditPost =>redditsArray.push(redditPost.data))  
+       setReddits(redditsArray)  
+    }
 
-       const machinePornPosts = data.data.children.map(post =>redditsArray.push(post.data))
-
-       
-       setReddits(redditsArray)
-
-       console.log("machinePornPosts", machinePornPosts)
-       console.log("redditsArray", redditsArray)
-       console.log("STATTTE", reddits)
- 
-   }
-
+    const getUrl = (reddit) => {
+        const imgUrl = reddit.preview.images[0].resolutions[1].url
+        let encoded = imgUrl.replace('amp;s', 's')
+        let doubleEncoded = encoded.replace('amp;', '')
+        let tripleEncoded = doubleEncoded.replace('amp;', '')
+        return tripleEncoded
+        }
+    
+    console.log("STATTTE", reddits)
   
     return (
     <div>
-        <h1>Scroller page</h1>
-        <h5>{reddits.map(reddit =>  <img alt="reddit" src={reddit.preview.images[0].resolutions[0].url} />)}</h5>
+        <h1>Infinite Machines Images </h1>
+       {reddits.map(reddit =>  
+        <div>
+            <h5>{reddit.title}</h5>
+            <img alt="reddit" src={getUrl(reddit)} />
+        </div>)}
     </div>
     )
 } 
