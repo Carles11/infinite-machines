@@ -21,10 +21,11 @@ const Scroller = () => {
 
     const getUrl = (reddit) => {
         const imgUrl = reddit.url
-        let encoded = imgUrl.replace('amp;s', 's')
+        if(reddit.preview){
+              let encoded = imgUrl.replace('amp;s', 's')
         let doubleEncoded = encoded.replace('amp;', '')
         let tripleEncoded = doubleEncoded.replace('amp;', '')
-        return tripleEncoded
+        return tripleEncoded}
         }
     
     console.log("STATTTE", reddits)
