@@ -1,8 +1,6 @@
-export const getUrl = reddit => {
-  const gifUrl = reddit.url.match(/\.(gifv)$/) != null
+export const getUrlFromGif = redditGifUrl => {
   let newGif
-  newGif = gifUrl ? reddit.url.replace(/\.(gifv)($|\?)/, '.gif$2') : null
-
+  newGif = redditGifUrl.replace(/\.(gifv)($|\?)/, '.gif$2')
   return newGif
 }
 

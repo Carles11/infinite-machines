@@ -19,7 +19,6 @@ const MainRedditter = () => {
       return <h4>Loading Data...</h4>
     }
   }
-  console.log('RErereffsdfsdfsdffsd', reddits)
 
   return (
     <div>
