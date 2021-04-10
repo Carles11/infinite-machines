@@ -9,13 +9,10 @@ const RedditCard = ({ reddits }) => {
     reddit => reddit.url.match(/\.(jpeg|jpg|gif|png)$/) != null,
   )
 
-  console.log('PPPOPIPIPIPI', picS)
-  console.log('AGAGAAGAGAG', gifS)
   const [redditPics, setRedditPics] = useState(picS)
   const [redditGifs, setRedditGifs] = useState(gifS)
 
   useEffect(() => {
-    console.log('RErerer', redditPics)
     const imgIsGif = reddits.map(
       reddit => reddit.url.match(/\.(gifv)$/) != null,
     )
@@ -25,17 +22,6 @@ const RedditCard = ({ reddits }) => {
       setRedditPics(reddits)
     }
   }, [reddits, redditPics])
-
-  const renderImg = reddit => {
-    const imgIsGif = reddit.url.match(/\.(gifv)$/) != null
-    console.log('imgToGIf', imgIsGif)
-
-    return !imgIsGif ? (
-      <img alt="reddit" width="80%" src={reddit.url} />
-    ) : (
-      <img alt="reddit" width="100%" src={getUrl(reddit)} />
-    )
-  }
 
   return (
     <div className="reddit-card">
