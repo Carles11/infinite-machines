@@ -6,20 +6,23 @@ import './redditCard.css'
 const RedditCard = ({ reddits }) => {
   const [redditPics] = useState([])
   const [redditGifs] = useState([])
-  const [picIsGif, setPicIsGif] = useState(false)
+  const [picIsGif, setPicIsGif] = useState('')
 
   useEffect(() => {
-    reddits.map(reddit =>
+    reddits.map((reddit, key) =>
       reddit.url.match(/\.(gifv)$/) != null
         ? redditGifs.push(reddit) && handlePicIsGif(true)
         : reddit.url.match(/\.(jpeg|jpg|png)$/) != null
         ? redditPics.push(reddit) && handlePicIsGif(false)
         : null,
     )
-  }, [reddits, redditGifs, redditPics])
+    console.log('PAPAPAPA', redditPics)
+    console.log('popopopopop', redditGifs)
+  })
 
   const handlePicIsGif = isGif => {
     setPicIsGif(isGif)
+    console.log('PIPIPIPI', picIsGif)
   }
   return (
     <div className="reddit-card">

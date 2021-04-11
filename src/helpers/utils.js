@@ -1,6 +1,7 @@
 export const getUrlFromGif = redditGifUrl => {
   let newGif
   newGif = redditGifUrl.replace(/\.(gifv)($|\?)/, '.gif$2')
+  console.log('uururururuRURUURURR', newGif)
   return newGif
 }
 
