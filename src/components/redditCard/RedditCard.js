@@ -13,7 +13,7 @@ const RedditCard = ({ reddits }) => {
       reddit.url.match(/\.(gifv)$/) != null
         ? redditGifs.push(reddit) && setPicIsGif(true)
         : reddit.url.match(/\.(jpeg|jpg|png)$/) != null
-        ? redditPics.push(reddit)
+        ? redditPics.push(reddit) && setPicIsGif(false)
         : null,
     )
   }, [reddits, redditGifs, redditPics])
@@ -29,9 +29,10 @@ const RedditCard = ({ reddits }) => {
                 <details>
                   <summary role="button" aria-label="static image"></summary>
                   <div class="object-and-details1">
-                    {redditPics.map(reddit => (
+                    {redditPics.map((reddit, key) => (
                       <>
                         <img
+                          key={key}
                           src="https://res.cloudinary.com/dssldws2k/image/upload/v1592923278/JordiArjo/Backgrounds/roof-4057310_640.jpg"
                           alt={reddit.title}
                         />
@@ -42,9 +43,9 @@ const RedditCard = ({ reddits }) => {
                 </details>
               </>
             ))
-          : redditPics.map(reddit => (
+          : redditPics.map((reddit, key) => (
               <>
-                <img src={reddit.url} alt={reddit.title} />
+                <img key={key} src={reddit.url} alt={reddit.title} />
                 <h5>{reddit.title}</h5>
               </>
             ))}
