@@ -11,20 +11,27 @@ const RedditCard = ({ reddits }) => {
   useEffect(() => {
     reddits.map(reddit =>
       reddit.url.match(/\.(gifv)$/) != null
-        ? redditGifs.push(reddit) && setPicIsGif(true)
+        ? redditGifs.push(reddit) && handlePicIsGif(true)
         : reddit.url.match(/\.(jpeg|jpg|png)$/) != null
-        ? redditPics.push(reddit) && setPicIsGif(false)
+        ? redditPics.push(reddit) && handlePicIsGif(false)
         : null,
     )
   }, [reddits, redditGifs, redditPics])
 
+  const handlePicIsGif = isGif => {
+    setPicIsGif(isGif)
+  }
   return (
     <div className="reddit-card">
       <div className="object-and-details">
         {picIsGif
-          ? redditGifs.map(reddit => (
+          ? redditGifs.map((reddit, key) => (
               <>
-                <img src={getUrlFromGif(reddit.url)} alt={reddit.title} />
+                <img
+                  key={key}
+                  src={getUrlFromGif(reddit.url)}
+                  alt={reddit.title}
+                />
                 <h5>{reddit.title}</h5>
                 <details>
                   <summary role="button" aria-label="static image"></summary>
@@ -36,7 +43,7 @@ const RedditCard = ({ reddits }) => {
                           src="https://res.cloudinary.com/dssldws2k/image/upload/v1592923278/JordiArjo/Backgrounds/roof-4057310_640.jpg"
                           alt={reddit.title}
                         />
-                        <h5>{reddit.title}</h5>
+                        <h5>{reddit.title} </h5>
                       </>
                     ))}
                   </div>
@@ -46,7 +53,7 @@ const RedditCard = ({ reddits }) => {
           : redditPics.map((reddit, key) => (
               <>
                 <img key={key} src={reddit.url} alt={reddit.title} />
-                <h5>{reddit.title}</h5>
+                <h5>{reddit.title}egegeg</h5>
               </>
             ))}
       </div>
