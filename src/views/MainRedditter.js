@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { fetchReddits } from '../helpers/utils.js'
 
-import RedditCard from '../components/redditCard/RedditCard.js'
+import RedditList from '../components/redditList/RedditList.js'
 
 const MainRedditter = () => {
   const [reddits, setReddits] = useState([])
@@ -23,7 +23,7 @@ const MainRedditter = () => {
   return (
     <div>
       <h1>Infinite Machines Images </h1>
-      <RedditCard reddits={reddits} />
+      <RedditList reddits={reddits} />
     </div>
   )
 }

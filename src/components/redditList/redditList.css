@@ -1,25 +1,18 @@
 .reddit-card {
   background-color: rgb(79, 69, 87);
+  margin: 2rem auto;
+  
+}
+.gif-items {
+}
+
+.image-items {
 }
 
 /* ABOUT GIFs */
 * {
   padding: 0;
   margin: 0;
-}
-body {
-  background-color: black;
-  color: white;
-}
-
-h1,
-h2 {
-  padding: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-html {
-  font-family: sans-serif;
 }
 
 .object-and-details {
