@@ -7,14 +7,17 @@ const RedditList = ({ reddits }) => {
   return (
     <div className="reddit-card">
       {reddits.map((reddit, key) =>
-        reddit.url.match(/\.(gifv)$/) != null ? (
+        reddit.url.match(/\.(gifv)$/) !== null ? (
           <div className="gif-items">
             <div class="object-and-details">
-              <img
+              {/* <img
                 key={key}
                 src={getUrlFromGif(reddit.url)}
                 alt={reddit.title}
-              />
+              /> */}
+              <video autoplay key={key} controls alt={reddit.title}>
+                <source src={getUrlFromGif(reddit.url)} type="video/mp4" />
+              </video>
 
               <details>
                 <summary role="button" aria-label="static reddit"></summary>
