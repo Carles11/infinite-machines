@@ -15,7 +15,17 @@ const RedditList = ({ reddits }) => {
                 src={getUrlFromGif(reddit.url)}
                 alt={reddit.title}
               /> */}
-              <video autoplay key={key} controls alt={reddit.title}>
+              <video
+                id={key}
+                autoplay="autoplay"
+                muted="muted"
+                loop="loop"
+                playsinline="playsinline"
+                preload="metadata"
+                data-aos="fade-up"
+                controls
+                key={key}
+                alt={reddit.title}>
                 <source src={getUrlFromGif(reddit.url)} type="video/mp4" />
               </video>
 
