@@ -10,11 +10,6 @@ const RedditList = ({ reddits }) => {
         reddit.url.match(/\.(gifv)$/) !== null ? (
           <div className="gif-items">
             <div class="object-and-details">
-              {/* <img
-                key={key}
-                src={getUrlFromGif(reddit.url)}
-                alt={reddit.title}
-              /> */}
               <video
                 id={key}
                 autoplay="autoplay"
@@ -29,16 +24,6 @@ const RedditList = ({ reddits }) => {
                 <source src={getUrlFromGif(reddit.url)} type="video/mp4" />
               </video>
 
-              <details>
-                <summary role="button" aria-label="static reddit"></summary>
-                <div class="object-and-details1">
-                  <img
-                    key={key}
-                    src="https://res.cloudinary.com/dssldws2k/image/upload/v1592923278/JordiArjo/Backgrounds/roof-4057310_640.jpg"
-                    alt={reddit.title}
-                  />
-                </div>
-              </details>
               <h5>{reddit.title}</h5>
             </div>{' '}
           </div>

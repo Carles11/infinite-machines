@@ -7,6 +7,5 @@ export const fetchReddits = handleReddits => {
 export const getUrlFromGif = redditGifUrl => {
   let newGif
   newGif = redditGifUrl.replace(/\.(gifv)($|\?)/, '.mp4')
-  console.log('RURURURURURURUURU', newGif)
   return newGif
 }
