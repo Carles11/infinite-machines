@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 // import './lazy.css'
@@ -20,15 +20,49 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
-const ResponsiveImage = ({ src, srcRetina, alt, video, ...props }) =>
-  video ? (
+const ResponsiveImage = ({ src, srcRetina, alt, video, ...props }) => {
+  const [zoomActive, setZoomActive] = useState(false)
+
+  // useEffect(() => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     left: 0,
+  //     behavior: 'smooth',
+  //   })
+  // })
+
+  // const alignToTop = {
+  //   behavior: 'smooth',
+  //   block: 'start',
+  // }
+
+  const handleZoom = e => {
+    setZoomActive(!zoomActive)
+    if (!zoomActive) {
+      e.target.style.height = 'auto'
+      e.target.style.width = '100vw'
+      // e.target.scrollIntoView(alignToTop)
+    } else {
+      e.target.style.height = 'auto'
+      e.target.style.width = '200vw'
+    }
+    setZoomActive(!zoomActive)
+
+    // const elmnt =
+    //   document.querySelectorAll('img.lzy_img') &&
+    //   document.querySelectorAll('video.lzy_img')
+
+    // elmnt.scrollIntoView()
+  }
+
+  return video ? (
     <video
       id={props.id}
       className="video-item lzy_img"
-      autoplay="autoplay"
+      autoPlay="autoplay"
       muted="muted"
       loop="loop"
-      playsinline="playsinline"
+      playsInline="playsinline"
       preload="metadata"
       data-aos="fade-up"
       controls
@@ -38,15 +72,18 @@ const ResponsiveImage = ({ src, srcRetina, alt, video, ...props }) =>
     </video>
   ) : (
     <img
+      id={props.id}
       data-srcset={`${src} 1x, ${srcRetina} 2x`}
       data-src={`${src}`}
       srcSet={`${src} 1x, ${srcRetina} 2x`}
       src={`${src}`}
       alt={alt}
       className="lzy_img"
+      onClick={e => handleZoom(e)}
       {...props}
     />
   )
+}
 
 ResponsiveImage.propTypes = {
   image: PropTypes.string,
