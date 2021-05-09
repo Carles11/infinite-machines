@@ -1,6 +1,6 @@
 import React from 'react'
 import { getUrlFromGif } from '../../helpers/utils'
-
+import ResponsiveImage from '../ResponsiveImage/index.js'
 import './redditList.css'
 
 const RedditList = ({ reddits }) => {
@@ -9,31 +9,25 @@ const RedditList = ({ reddits }) => {
       {reddits.map((reddit, key) =>
         reddit.url.match(/\.(gifv)$/) !== null ? (
           <div className="gif-items">
-            <video
+            <ResponsiveImage
               id={key}
-              className="video-item"
-              autoplay="autoplay"
-              muted="muted"
-              loop="loop"
-              playsinline="playsinline"
-              preload="metadata"
-              data-aos="fade-up"
-              controls
               key={key}
-              alt={reddit.title}>
-              <source src={getUrlFromGif(reddit.url)} type="video/mp4" />
-            </video>
-
+              alt={reddit.title}
+              src={getUrlFromGif(reddit.url)}
+              video
+            />
             <h5>{reddit.title}</h5>
           </div>
         ) : (
           <div>
-            <img
+            <ResponsiveImage
               className="image-item"
               key={key}
               src={reddit.url}
+              srcRetina={reddit.url}
               alt={reddit.title}
             />
+
             <h5>{reddit.title}egegeg</h5>
           </div>
         ),

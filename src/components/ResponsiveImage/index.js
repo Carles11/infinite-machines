@@ -12,28 +12,38 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
   })
-  const arr = document.querySelectorAll('img.lzy_img')
+  const arr =
+    document.querySelectorAll('img.lzy_img') &&
+    document.querySelectorAll('video.lzy_img')
   arr.forEach(v => {
     imageObserver.observe(v)
   })
 })
 
-const ResponsiveImage = ({ image, imageRetina, alt, lazyImg, ...props }) =>
-  !lazyImg ? (
-    <img
-      srcSet={`${image} 1x, ${imageRetina} 2x`}
-      src={`${image}`}
-      alt={alt}
-      {...props}
-    />
+const ResponsiveImage = ({ src, srcRetina, alt, video, ...props }) =>
+  video ? (
+    <video
+      id={props.id}
+      className="video-item lzy_img"
+      autoplay="autoplay"
+      muted="muted"
+      loop="loop"
+      playsinline="playsinline"
+      preload="metadata"
+      data-aos="fade-up"
+      controls
+      key={props.key}
+      alt={props.title}>
+      <source src={src} type="video/mp4" />
+    </video>
   ) : (
     <img
-      data-srcset={`${image} 1x, ${imageRetina} 2x`}
-      data-src={`${image}`}
-      srcSet={`${image} 1x, ${imageRetina} 2x`}
-      src={`${image}`}
+      data-srcset={`${src} 1x, ${srcRetina} 2x`}
+      data-src={`${src}`}
+      srcSet={`${src} 1x, ${srcRetina} 2x`}
+      src={`${src}`}
       alt={alt}
-      className="lazy"
+      className="lzy_img"
       {...props}
     />
   )
