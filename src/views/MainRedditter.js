@@ -12,8 +12,6 @@ const MainRedditter = () => {
   })
 
   const handleReddits = data => {
-   
-    console.log('DATATATATAT', data)
     let redditsArray = []
     if (data && data !== 'undefined') {
       data.data.children.map(redditPost => redditsArray.push(redditPost.data))
@@ -26,11 +24,7 @@ const MainRedditter = () => {
   return (
     <div>
       <h1>Infinite Machines Images </h1>
-      {false ? (
-        <RedditList reddits={reddits} />
-      ) : (
-        <Loader />
-      )}
+      {false ? <RedditList reddits={reddits} /> : <Loader />}
     </div>
   )
 }
