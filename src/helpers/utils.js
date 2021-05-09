@@ -1,5 +1,5 @@
 export const fetchReddits = handleReddits => {
-  fetch('https://www.reddit.com/r/MachinePorn/.json?limit=100&after=t3_mfx5kk')
+  fetch('https://www.reddit.com/r/MachinePorn/.json')
     .then(response => response.json())
     .then(data => handleReddits(data))
 }
