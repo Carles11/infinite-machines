@@ -1,11 +1,8 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/require-default-props */
 import React from 'react'
 import PropTypes from 'prop-types'
 
 // import './lazy.css'
 document.addEventListener('DOMContentLoaded', () => {
-  // eslint-disable-next-line no-undef
   const imageObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
