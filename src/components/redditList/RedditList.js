@@ -17,7 +17,6 @@ const RedditList = ({ reddits }) => {
               src={fallBackUrl || getUrlFromGif(reddit.url)}
               video
             />
-            {console.log('GIGIGIGIGFF', reddit)}
             <h5>{reddit.title}</h5>
           </div>
         ) : (
