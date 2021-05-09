@@ -6,16 +6,18 @@ import './redditList.css'
 const RedditList = ({ reddits }) => {
   return (
     <div className="reddit-card">
-      {reddits.map((reddit, key) =>
-        reddit.url.match(/\.(gifv)$/) !== null ? (
+      {reddits.map((reddit, key) => {
+        const fallBackUrl = reddit.preview.reddit_video_preview?.fallback_url
+        return reddit.preview.reddit_video_preview?.is_gif ? (
           <div className="gif-items">
             <ResponsiveImage
-              id={key}
+              id={reddit.id}
               key={key}
               alt={reddit.title}
-              src={getUrlFromGif(reddit.url)}
+              src={fallBackUrl || getUrlFromGif(reddit.url)}
               video
             />
+            {console.log('GIGIGIGIGFF', reddit)}
             <h5>{reddit.title}</h5>
           </div>
         ) : (
@@ -28,10 +30,10 @@ const RedditList = ({ reddits }) => {
               alt={reddit.title}
             />
 
-            <h5>{reddit.title}egegeg</h5>
+            <h5>{reddit.title}</h5>
           </div>
-        ),
-      )}
+        )
+      })}
     </div>
   )
 }
