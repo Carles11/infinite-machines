@@ -24,7 +24,11 @@ const MainRedditter = () => {
   return (
     <div>
       <h1>Infinite Machines Images </h1>
-      {false ? <RedditList reddits={reddits} /> : <Loader />}
+      {reddits && reddits !== 'undefined' ? (
+        <RedditList reddits={reddits} />
+      ) : (
+        <Loader />
+      )}
     </div>
   )
 }
