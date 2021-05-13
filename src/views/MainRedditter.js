@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { fetchReddits } from '../helpers/utils.js'
 
 import RedditList from '../components/redditList/RedditList.js'
-import Loader from '../components/loader/Loader'
+import Loader from '../components/loader/Loader.js'
 
 const MainRedditter = () => {
   const [reddits, setReddits] = useState([])
