@@ -2,11 +2,7 @@ import React from 'react'
 import './legend.css'
 
 const Legend = ({ title }) => {
-  return (
-    <div className="legend-info">
-      <h5>{title}</h5>
-    </div>
-  )
+  return <h5 className="legend-info">{title}</h5>
 }
 
 export default Legend

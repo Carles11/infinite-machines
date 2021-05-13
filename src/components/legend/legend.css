@@ -3,5 +3,12 @@
   font-weight: 400;
   font-style: normal;
   color: black;
-  padding: 2rem;
+  background-color: tan;
+}
+@media screen and (min-width: 992px) {
+  .legend-info {
+    margin-left: 9rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }

@@ -1,9 +1,11 @@
 .reddit-card {
-  margin: 2rem auto;
+  margin: auto;
 }
 .item-container {
   display: flex;
   flex-direction: column;
+  margin: auto;
+  position: relative;
 }
 
 .video-item {
@@ -16,8 +18,11 @@
 
 .legend-item {
   position: absolute;
-  margin-top: 2rem;
-  background-color: tan;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 1rem;
   opacity: 0.8;
-  width: 40%;
+  margin: auto;
 }

@@ -3,6 +3,7 @@ import { fetchReddits } from '../helpers/utils.js'
 
 import RedditList from '../components/redditList/RedditList.js'
 // import Loader from '../components/loader/Loader.js'
+import './mainRedditter.css'
 
 const MainRedditter = () => {
   const [reddits, setReddits] = useState([])
@@ -23,7 +24,7 @@ const MainRedditter = () => {
 
   return (
     <div>
-      <h1>Infinite Machines Images </h1>
+      <h1 className="main-title">Infinite Machines Images </h1>
       {reddits && reddits !== 'undefined' ? (
         <RedditList reddits={reddits} />
       ) : (

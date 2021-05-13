@@ -1,0 +1,9 @@
+.main-title {
+  padding: auto;
+  font-size: 8vw;
+}
+@media screen and (min-width: 992px) {
+  .main-title {
+    font-size: 4vw;
+  }
+}
