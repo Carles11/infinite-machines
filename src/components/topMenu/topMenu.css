@@ -17,12 +17,11 @@
 
 .header-menu-item {
   font-family: sunflower, sans-serif;
-  font-size: 2rem;
+  font-size: 1rem;
   margin: 1rem;
-  border: 2px solid orange;
+  border: 2px solid tan;
   border-radius: 5px;
-  padding: 1rem;
-  background-color: orange;
+  background-color: tan;
   color: white;
 }
 .header-menu-item:hover {
