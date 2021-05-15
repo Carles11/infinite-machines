@@ -5,6 +5,34 @@ import Legend from '../legend/Legend'
 import './redditList.css'
 
 const RedditList = ({ reddits }) => {
+  const openFullScreen = id => {
+    const elem = document.getElementById(id)
+    if (document.fullscreenElement === null) {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen()
+      } else if (elem.webkitRequestFullscreen) {
+        /* Safari */
+        elem.webkitRequestFullscreen()
+      } else if (elem.msRequestFullscreen) {
+        /* IE11 */
+        elem.msRequestFullscreen()
+      }
+    } else {
+      closeFullScreen()
+    }
+  }
+
+  const closeFullScreen = () => {
+    if (document.exitFullscreen) {
+      document.exitFullscreen()
+    } else if (document.webkitExitFullscreen) {
+      /* Safari */
+      document.webkitExitFullscreen()
+    } else if (document.msExitFullscreen) {
+      /* IE11 */
+      document.msExitFullscreen()
+    }
+  }
   return (
     <div className="reddit-card">
       {reddits.map((reddit, key) => {
@@ -19,6 +47,7 @@ const RedditList = ({ reddits }) => {
                 src={fallBackUrl || getMp4FromGifUrl(reddit.url)}
                 className="video-item"
                 video
+                onClick={e => openFullScreen(e.target.id)}
               />
             ) : (
               <ResponsiveImage
@@ -28,6 +57,7 @@ const RedditList = ({ reddits }) => {
                 src={reddit.url}
                 srcRetina={reddit.url}
                 alt={reddit.title}
+                onClick={e => openFullScreen(e.target.id)}
               />
             )}
             <div className="legend-item">

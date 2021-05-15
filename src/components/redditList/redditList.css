@@ -31,3 +31,18 @@
   width: 100vw;
   height: fit-content;
 }
+
+/* Safari */
+:-webkit-full-screen {
+  background-color: black;
+}
+
+/* IE11 */
+:-ms-fullscreen {
+  background-color: black;
+}
+
+/* Standard syntax */
+:fullscreen {
+  background-color: black;
+}
