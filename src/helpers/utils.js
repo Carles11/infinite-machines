@@ -4,7 +4,7 @@ export const fetchReddits = handleReddits => {
     .then(data => handleReddits(data))
 }
 
-export const getUrlFromGif = redditGifUrl => {
+export const getMp4FromGifUrl = redditGifUrl => {
   let newGif
   newGif =
     redditGifUrl.match(/\.(gifv)$/) !== null

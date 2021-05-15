@@ -1,0 +1,30 @@
+.header-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.main-title {
+  font-family: 'Girassol', cursive;
+  padding: auto;
+  font-size: 8vw;
+}
+@media screen and (min-width: 992px) {
+  .main-title {
+    font-size: 4vw;
+  }
+}
+
+.header-menu-item {
+  font-family: sunflower, sans-serif;
+  font-size: 2rem;
+  margin: 1rem;
+  border: 2px solid orange;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: orange;
+  color: white;
+}
+.header-menu-item:hover {
+  cursor: pointer;
+}

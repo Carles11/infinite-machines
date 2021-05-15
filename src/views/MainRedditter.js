@@ -2,31 +2,40 @@ import React, { useState, useEffect } from 'react'
 import { fetchReddits } from '../helpers/utils.js'
 
 import RedditList from '../components/redditList/RedditList.js'
-
+import TopMenu from '../components/topMenu/TopMenu'
 // import Loader from '../components/loader/Loader.js'
 import './mainRedditter.css'
 
 const MainRedditter = () => {
   const [reddits, setReddits] = useState([])
+  const [itemsShown, setItemsShown] = useState('')
 
   useEffect(() => {
     fetchReddits(handleReddits)
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemsShown])
 
   const handleReddits = data => {
     let redditsArray = []
-    if (data && data !== 'undefined') {
+
+    if (data && data !== 'undefined' && itemsShown === 'photos') {
+      data.data.children
+        .filter(reddit => reddit.data.url.match(/\.(jpeg|jpg|png)$/) != null)
+        .map(redditPost => redditsArray.push(redditPost.data))
+      setReddits(redditsArray)
+    } else if (data && data !== 'undefined' && itemsShown === 'gifs') {
+      data.data.children
+        .filter(reddit => reddit.data.url.match(/\.(gifv|gif|mp4)$/) != null)
+        .map(redditPost => redditsArray.push(redditPost.data))
+      setReddits(redditsArray)
+    } else if (data && data !== 'undefined') {
       data.data.children.map(redditPost => redditsArray.push(redditPost.data))
       setReddits(redditsArray)
-    } else {
-      return <h4>Loading Data...</h4>
-    }
+    } else return
   }
-
   return (
     <div>
-      <h1 className="main-title">Infinite Machines</h1>
-
+      <TopMenu setItemsShown={setItemsShown} />
       {reddits && reddits !== 'undefined' ? (
         <RedditList reddits={reddits} />
       ) : (
