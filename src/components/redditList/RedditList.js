@@ -12,7 +12,7 @@ const RedditList = ({ reddits }) => {
         return (
           <div key={`r_${key}_${reddit.id}`} className="item-container">
             {reddit.preview?.reddit_video_preview?.is_gif ? (
-              <div className="gif-items">
+              <div className="video-item">
                 <ResponsiveImage
                   id={reddit.id}
                   key={key}

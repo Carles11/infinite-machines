@@ -1,10 +1,9 @@
 .legend-info {
   background-color: tan;
+  margin-right: 20%;
 }
 @media screen and (min-width: 992px) {
   .legend-info {
-    margin-left: 9rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    margin-right: 60%;
   }
 }

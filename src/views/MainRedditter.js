@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { fetchReddits } from '../helpers/utils.js'
 
 import RedditList from '../components/redditList/RedditList.js'
+
 // import Loader from '../components/loader/Loader.js'
 import './mainRedditter.css'
 
@@ -24,7 +25,8 @@ const MainRedditter = () => {
 
   return (
     <div>
-      <h1 className="main-title">Infinite Machines Images </h1>
+      <h1 className="main-title">Infinite Machines</h1>
+
       {reddits && reddits !== 'undefined' ? (
         <RedditList reddits={reddits} />
       ) : (
