@@ -3,6 +3,7 @@ import { fetchReddits } from '../helpers/utils.js'
 
 import RedditList from '../components/redditList/RedditList.js'
 import TopMenu from '../components/topMenu/TopMenu'
+import MainMenu from '../components/mainMenu/MainMenu'
 // import Loader from '../components/loader/Loader.js'
 import './mainRedditter.css'
 
@@ -17,7 +18,6 @@ const MainRedditter = () => {
 
   const handleReddits = data => {
     let redditsArray = []
-
     if (data && data !== 'undefined' && itemsShown === 'photos') {
       data.data.children
         .filter(reddit => reddit.data.url.match(/\.(jpeg|jpg|png)$/) != null)
@@ -35,6 +35,7 @@ const MainRedditter = () => {
   }
   return (
     <div>
+      <MainMenu />
       <TopMenu setItemsShown={setItemsShown} />
       {reddits && reddits !== 'undefined' ? (
         <RedditList reddits={reddits} />

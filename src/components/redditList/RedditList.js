@@ -33,32 +33,62 @@ const RedditList = ({ reddits }) => {
       document.msExitFullscreen()
     }
   }
+
   return (
     <div className="reddit-card">
       {reddits.map((reddit, key) => {
+        const random_boolean = Math.random() < 0.5
+        console.log('ararararar', random_boolean)
+
         const fallBackUrl = reddit.preview?.reddit_video_preview?.fallback_url
+
         return (
-          <div key={`r_${key}_${reddit.id}`} className="item-container">
+          <div
+            key={`r_${key}_${reddit.id}`}
+            className={
+              random_boolean ? 'item-container column-span-12 gallery' : ''
+            }>
             {reddit.preview?.reddit_video_preview?.is_gif ? (
               <ResponsiveImage
                 id={reddit.id}
                 key={key}
                 alt={reddit.title}
                 src={fallBackUrl || getMp4FromGifUrl(reddit.url)}
-                className="video-item"
                 video
                 onClick={e => openFullScreen(e.target.id)}
               />
             ) : (
-              <ResponsiveImage
-                id={reddit.id}
-                key={key}
-                className="image-item"
-                src={reddit.url}
-                srcRetina={reddit.url}
-                alt={reddit.title}
-                onClick={e => openFullScreen(e.target.id)}
-              />
+              <div
+                className={
+                  random_boolean
+                    ? ''
+                    : 'flex-row item-container column-span-12 gallery'
+                }>
+                <>
+                  <ResponsiveImage
+                    id={random_boolean ? reddit.id : reddits[key]?.id}
+                    key={key}
+                    src={random_boolean ? reddit.id : reddits[key]?.url}
+                    srcRetina={random_boolean ? reddit.id : reddits[key]?.url}
+                    alt={random_boolean ? reddit.id : reddits[key]?.title}
+                    onClick={e => openFullScreen(e.target.id)}
+                  />
+                </>
+                <>
+                  !random_boolean &&
+                  <ResponsiveImage
+                    id={reddits[key + 21]?.id}
+                    key={key}
+                    src={reddits[key + 21]?.url}
+                    srcRetina={reddits[key + 21]?.url}
+                    alt={reddits[key + 21]?.title}
+                    onClick={e => openFullScreen(e.target.id)}
+                  />
+                  <div className="legend-item-in-row">
+                    <Legend title={reddits[key + 21]?.title} />
+                  </div>
+                </>
+              </div>
             )}
             <div className="legend-item">
               <Legend title={reddit.title} />

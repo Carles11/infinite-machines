@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-// import './lazy.css'
+import './lazy.css'
 document.addEventListener('DOMContentLoaded', () => {
   const imageObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -55,33 +55,53 @@ const ResponsiveImage = ({ src, srcRetina, alt, video, ...props }) => {
     // elmnt.scrollIntoView()
   }
 
-  return video ? (
-    <video
-      id={props.id}
-      className="video-item lzy_img"
-      autoPlay="autoplay"
-      muted="muted"
-      loop="loop"
-      playsInline="playsinline"
-      preload="metadata"
-      data-aos="fade-up"
-      controls
-      key={props.key}
-      alt={props.title}>
-      <source src={src} type="video/mp4" />
-    </video>
-  ) : (
-    <img
-      id={props.id}
-      data-srcset={`${src} 1x, ${srcRetina} 2x`}
-      data-src={`${src}`}
-      srcSet={`${src} 1x, ${srcRetina} 2x`}
-      src={`${src}`}
-      alt={alt}
-      className="lzy_img"
-      onClick={e => handleZoom(e)}
-      {...props}
-    />
+  return (
+    <section className="gallery">
+      <div className="container">
+        <div className="grid">
+          <div>
+            <figure className="img-container">
+              {video ? (
+                <video
+                  id={props.id}
+                  className="video-item lzy_img"
+                  autoPlay="autoplay"
+                  muted="muted"
+                  loop="loop"
+                  playsInline="playsinline"
+                  preload="metadata"
+                  data-aos="fade-up"
+                  controls
+                  key={props.key}
+                  alt={props.title}>
+                  <source src={src} type="video/mp4" />
+                </video>
+              ) : (
+                <img
+                  id={props.id}
+                  data-srcset={`${src} 1x, ${srcRetina} 2x`}
+                  data-src={`${src}`}
+                  srcSet={`${src} 1x, ${srcRetina} 2x`}
+                  src={`${src}`}
+                  alt={alt}
+                  className="image-item lzy_img"
+                  onClick={e => handleZoom(e)}
+                  {...props}
+                />
+              )}
+              <figcaption className="img-content">
+                <h2 className="title">{props.title}</h2>
+                <h3 className="category">{props.id}</h3>
+              </figcaption>
+              <span className="img-content-hover">
+                <h2 className="title">{props.title}</h2>
+                <h3 className="category">{props.id}</h3>
+              </span>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 

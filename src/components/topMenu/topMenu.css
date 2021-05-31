@@ -4,20 +4,9 @@
   justify-content: center;
 }
 
-.main-title {
-  font-family: 'Girassol', cursive;
-  padding: auto;
-  font-size: 8vw;
-}
-@media screen and (min-width: 992px) {
-  .main-title {
-    font-size: 4vw;
-  }
-}
-
 .header-menu-item {
-  font-family: sunflower, sans-serif;
-  font-size: 1rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: calc(12px + 2vmin);
   margin: 1rem;
   border: 2px solid tan;
   border-radius: 5px;

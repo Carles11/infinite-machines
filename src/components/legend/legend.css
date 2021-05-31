@@ -4,6 +4,7 @@
 }
 @media screen and (min-width: 992px) {
   .legend-info {
+    font-size: calc(8px + 2vmin);
     margin-right: 60%;
   }
 }
