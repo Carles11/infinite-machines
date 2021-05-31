@@ -7,18 +7,17 @@
   flex-direction: column;
   position: relative;
   text-align: center;
-  font-family: sunflower, sans-serif;
   font-weight: 400;
   font-style: normal;
   color: white;
 }
 
 .video-item {
-  width: 100vw;
+  width: 100%;
   height: auto;
 }
 .image-item {
-  width: 100vw;
+  width: 100%;
 }
 
 .legend-item {
@@ -30,6 +29,9 @@
   margin: auto;
   width: 100vw;
   height: fit-content;
+}
+.legend-item-in-row {
+  position: absolute;
 }
 
 /* Safari */
@@ -45,4 +47,19 @@
 /* Standard syntax */
 :fullscreen {
   background-color: black;
+}
+
+.column-span-12 {
+  width: 100%;
+}
+.column-span-6 {
+  width: 50%;
+}
+.column-span-4 {
+  width: 33%;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }

@@ -5,7 +5,7 @@ import './topMenu.css'
 const TopMenu = ({ setItemsShown }) => {
   return (
     <div>
-      <h1 className="main-title">Infinite Machines</h1>
+      {/* <h1 className="main-title">Infinite Machines</h1> */}
       <div className="header-menu">
         <button
           id="photos"
