@@ -1,0 +1,65 @@
+.reddit-card {
+  margin: auto;
+  background: white;
+}
+.item-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.video-item {
+  width: 100%;
+  height: auto;
+}
+.image-item {
+  width: 100%;
+}
+
+.legend-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 1rem;
+  opacity: 0.8;
+  margin: auto;
+  width: 100vw;
+  height: fit-content;
+}
+.legend-item-in-row {
+  position: absolute;
+}
+
+/* Safari */
+:-webkit-full-screen {
+  background-color: black;
+}
+
+/* IE11 */
+:-ms-fullscreen {
+  background-color: black;
+}
+
+/* Standard syntax */
+:fullscreen {
+  background-color: black;
+}
+
+.column-span-12 {
+  width: 100%;
+}
+.column-span-6 {
+  width: 50%;
+}
+.column-span-4 {
+  width: 33%;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
