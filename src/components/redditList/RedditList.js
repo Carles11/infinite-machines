@@ -38,7 +38,7 @@ const RedditList = ({ reddits }) => {
     <div className="reddit-card">
       {reddits.map((reddit, key) => {
         const random_boolean = Math.random() < 0.5
-        console.log('ararararar', random_boolean)
+        
 
         const fallBackUrl = reddit.preview?.reddit_video_preview?.fallback_url
 
