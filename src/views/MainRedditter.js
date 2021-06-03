@@ -7,6 +7,7 @@ import TopMenu from '../components/topMenu/TopMenu'
 import './mainRedditter.css'
 
 const MainRedditter = () => {
+  console.log('process.env.NODE_ENV???', process.env.NODE_ENV)
   const [reddits, setReddits] = useState([])
   const [itemsShown, setItemsShown] = useState('')
 
