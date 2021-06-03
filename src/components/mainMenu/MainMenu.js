@@ -7,23 +7,22 @@ const MainMenu = () => {
     <div>
       <nav>
         <div className="main-title-container">
-          <div className="main-title-grid">
-            <div className="main-infinite-title">
-              <p id="highlight">Infinite Machines</p>
-            </div>
-            <div className="column-xs-12 column-md-2">
-              <ul>
-                <li>
-                  <a href="#" className="active">
-                    All infinite apps
-                  </a>
-                </li>
-                <li>
-                  <a href="#">Data privacy policy</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <ul className="main-infinite-title main-title-flex">
+            <li>
+              <a href="https://crix.design" className="active">
+                <p id="highlight">Infinite Machines</p>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://crix.design" className="active">
+                All infinite apps
+              </a>
+            </li>
+            <li>
+              <a href="https://crix.design">Data privacy policy</a>
+            </li>
+          </ul>
         </div>
       </nav>
     </div>

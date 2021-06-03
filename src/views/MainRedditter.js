@@ -36,7 +36,6 @@ const MainRedditter = () => {
   return (
     <div>
       <MainMenu />
-
       <TopMenu setItemsShown={setItemsShown} />
       {/* <div>
         <small>
@@ -51,10 +50,10 @@ const MainRedditter = () => {
         </form>
       </div> */}
       {reddits && reddits !== 'undefined' ? (
-        <RedditList reddits={reddits} />
+        <h4>"Loading..."</h4>
       ) : (
         // <Loader />
-        <h4>"Loading..."</h4>
+        <RedditList reddits={reddits} />
       )}
     </div>
   )

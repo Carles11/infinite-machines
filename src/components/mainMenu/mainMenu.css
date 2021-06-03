@@ -8,12 +8,13 @@
 } */
 
 .main-title-container {
-  margin: 0rem 4.5rem;
+  position: absolute;
+  top: 0;
 }
-.main-title-grid {
+.main-title-flex {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 ul li {
   margin: 0 1.5rem 0 0;
