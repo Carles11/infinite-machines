@@ -38,16 +38,13 @@ const RedditList = ({ reddits }) => {
     <div className="reddit-card">
       {reddits.map((reddit, key) => {
         const random_boolean = Math.random() < 0.5
-        
 
         const fallBackUrl = reddit.preview?.reddit_video_preview?.fallback_url
 
         return (
           <div
             key={`r_${key}_${reddit.id}`}
-            className={
-              random_boolean ? 'item-container column-span-12 gallery' : ''
-            }>
+            className={random_boolean ? 'item-container column-span-12' : ''}>
             {reddit.preview?.reddit_video_preview?.is_gif ? (
               <ResponsiveImage
                 id={reddit.id}
