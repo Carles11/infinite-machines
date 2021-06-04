@@ -37,39 +37,41 @@ const Gallery = ({ reddits }) => {
   return (
     <div>
       <h1>Gallery</h1>
-      {reddits.map((reddit, key) => {
-        const fallBackUrl = reddit.preview?.reddit_video_preview?.fallback_url
-        return (
-          <ul>
-            {reddit.preview?.reddit_video_preview?.is_gif ? (
-              <li>
-                <ResponsiveImage
-                  id={reddit.id}
-                  key={key}
-                  alt={reddit.title}
-                  src={fallBackUrl || getMp4FromGifUrl(reddit.url)}
-                  video
-                  onClick={e => openFullScreen(e.target.id)}
-                />
-              </li>
-            ) : (
-              <li>
-                <ResponsiveImage
-                  id={reddit.cid}
-                  key={key}
-                  src={reddit.curl}
-                  srcRetina={reddit.curl}
-                  alt={reddit.ctitle}
-                  onClick={e => openFullScreen(e.target.id)}
-                />
-              </li>
-            )}
-            <div className="legend-item">
-              <Legend title={reddit.title} />
+      <ul>
+        {reddits.map((reddit, key) => {
+          const fallBackUrl = reddit.preview?.reddit_video_preview?.fallback_url
+          return (
+            <div>
+              {reddit.preview?.reddit_video_preview?.is_gif ? (
+                <li>
+                  <ResponsiveImage
+                    id={reddit.id}
+                    key={key}
+                    alt={reddit.title}
+                    src={fallBackUrl || getMp4FromGifUrl(reddit.url)}
+                    video
+                    onClick={e => openFullScreen(e.target.id)}
+                  />
+                </li>
+              ) : (
+                <li>
+                  <ResponsiveImage
+                    id={reddit.cid}
+                    key={key}
+                    src={reddit.curl}
+                    srcRetina={reddit.curl}
+                    alt={reddit.ctitle}
+                    onClick={e => openFullScreen(e.target.id)}
+                  />
+                </li>
+              )}
+              <div className="legend-item">
+                <Legend title={reddit.title} />
+              </div>
             </div>
-          </ul>
-        )
-      })}
+          )
+        })}
+      </ul>
     </div>
   )
 }
